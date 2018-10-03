@@ -5,7 +5,18 @@ pipeline {
             args '-v /root/.m2:/root/.m2' 
         }
     }
+    environment { 
+        CC = 'clang'
+    }
     stages {
+        stage('Example') {
+            environment { 
+                DEBUG_FLAGS = '-g'
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
