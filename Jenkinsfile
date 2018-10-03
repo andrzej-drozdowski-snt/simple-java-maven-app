@@ -9,11 +9,12 @@ pipeline {
         CC = 'clang'
     }
     stages {
-        stage('Example') {
+        stage('Print Variables') {
             environment { 
                 DEBUG_FLAGS = '-g'
             }
             steps {
+                echo "Running ${env.BUILD_ID} {env.JOB_NAME} job on ${env.JENKINS_URL}"
                 sh 'printenv'
             }
         }
