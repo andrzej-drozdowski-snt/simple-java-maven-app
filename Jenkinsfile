@@ -12,7 +12,6 @@ pipeline {
         stage('Print Variables') {
             environment { 
                 DEBUG_FLAGS = '-g'
-                TEST_CREDS = credentials('test-creds')
             }
             steps {
                 echo "Running ${env.BUILD_ID} ${env.JOB_NAME} job on ${env.JENKINS_URL}"
